@@ -1,0 +1,37 @@
+{
+  "User": {
+    "age": {
+      "type": "Number"
+    },
+    "gender": {
+      "type": "String"
+    }
+  },
+  "Article": {
+    "title": {
+      "type": "String"
+    },
+    "user": {
+      "type": "Schema.Types.ObjectId",
+      "ref": "Users"
+    },
+    "content": {
+      "type": "String"
+    }
+  },
+  "ArticleScore": {
+    "score": {
+      "type": "Number"
+    },
+    "money": {
+      "type": "Number"
+    },
+    "user": {
+      "type": "Schema.Types.ObjectId",
+      "ref": "Users"
+    },
+    "remark": {
+      "type": "String"
+    }
+  }
+}

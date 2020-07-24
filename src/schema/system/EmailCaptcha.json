@@ -1,0 +1,17 @@
+{
+  "EmailCaptcha": {
+    "to": {
+      "type": "String"
+    },
+    "code": {
+      "type": "Number"
+    },
+    "expire": {
+      "type": "Number"
+    },
+    "createdAt": {
+      "type": "Date",
+      "default": "new Date()"
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "url_9999999": "/jex/user/sign-in",
+  "url_9999998": "/jex/user/sign-up",
+  "url_9999997": "/jex/public/requestPasswordReset",
+  "url_9999996": "/jex/public/requestEmailCaptcha"
+}
