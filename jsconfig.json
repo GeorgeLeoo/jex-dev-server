@@ -3,7 +3,9 @@
     "target": "es2017",
     "allowSyntheticDefaultImports": false,
     "baseUrl": "./",
-    "paths": {}
+    "paths": {
+      "@/*": ["src/*"]
+    }
   },
   "exclude": ["node_modules", "dist"]
 }

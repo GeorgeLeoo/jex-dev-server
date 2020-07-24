@@ -7,16 +7,12 @@ const helmet = require('helmet')
 const cors = require('cors')
 const fileUpload = require("express-fileupload");
 
-// const jexRouter = require('./routes/jexRouter')
-// const userRouter = require('./routes/userRouter')
-// const fileRouter = require('./routes/fileRouter')
-// const publicRouter = require('./routes/publicRouter')
-
 const ResponseCode = require('./utils/ResponseCode')
 
 const Response = require('./utils/Response')
 const { whiteList } = require('./config')
 const { checkToken } = require('./utils')
+const build_app = require('./../build/app')
 
 const app = express()
 
@@ -57,9 +53,10 @@ app.use(function (req, res, next) {
   }
 })
 
-app.use('/jex', require('./routes/jexRouter'))
-app.use('/jex/user', require('./routes/userRouter'))
-app.use('/jex/file', require('./routes/fileRouter'))
-app.use('/jex/public', require('./routes/publicRouter'))
+// app.use('/jex', require('./routes/jexRouter'))
+// app.use('/jex/user', require('./routes/userRouter'))
+// app.use('/jex/file', require('./routes/fileRouter'))
+// app.use('/jex/public', require('./routes/publicRouter'))
+build_app(app)
 
 module.exports = app

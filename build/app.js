@@ -18,22 +18,26 @@ async function write (path, data) {
 }
 
 async function build (path) {
+    const writeList = []
     try {
-        const writeList = []
         const dir = await openDir(path)
         for await (const dirent of dir) {
-            if (dirent.isDirectory()) {
-                build(`${path}/${dirent.name}`).then()
-            } else if (dirent.isFile()) {
-                const data = await read(path, dirent.name)
-                writeList.push(data)
+            if (dirent.isFile()) {
+                writeList.push(dirent.name)
             }
         }
-        await write(path, writeList)
     } catch (e) {
         throw e
     }
+    return writeList
 }
 
-build(DEV_PATH).then()
+//app.use('/jex', require('./routes/jexRouter'))
 
+module.exports = function (app) {
+    build(`${APP_PATH}/routes`).then(list => {
+        for (let item of list) {
+            app.use(`/${item.split('Router')[0]}`, require(`@/routes/${item}`))
+        }
+    })
+}
